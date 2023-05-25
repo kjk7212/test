@@ -26,9 +26,9 @@ EOF
 
 yum update -y
 
-sudo yum install -y docker
-sudo systemctl enable docker && sudo systemctl start docker
-sudo docker version
+sudo yum install containerd.io -y
+sudo systemctl daemon-reload
+sudo systemctl enable --now containerd
 
 sudo bash -c 'cat <<EOF > /etc/yum.repos.d/kubernetes.repo
 [kubernetes]
