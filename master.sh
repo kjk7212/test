@@ -15,7 +15,7 @@ EOF
 
 sysctl --system
 
-hostnamectl set-hostname k8s-master
+hostnamectl set-hostname k8s-master1
 
 cat <<EOF >> /etc/hosts
 172.16.210.26 k8s-master1
@@ -28,9 +28,6 @@ yum update -y
 
 yum install yum-utils
 yum-config-manager --add-repo https://download.docker.com/linux/centos/docker-ce.repo
-
-systemctl daemon-reload
-systemctl enable containerd --now
 
 sudo yum install containerd.io -y
 sudo systemctl daemon-reload
